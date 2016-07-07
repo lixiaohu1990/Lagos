@@ -8,25 +8,28 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  Navigator,
   Text,
   View
 } from 'react-native';
-
+import SplashPage from './Splash.js';
 class Lagou extends Component {
   render() {
+    var defaultName = 'Splash';
+    var defaultComponent = SplashPage;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute={{name:defaultName, component:defaultComponent}}
+        configureScene={(router) => {
+          return Navigator.SceneConfigs.HorizontalSwipeJumpFromRight;
+        }}
+
+        renderScene={(route, navigator) => {
+          let Component = route.component;
+          return <Component {...route.params} navigator={navigator}/>;
+        }}
+
+      />
     );
   }
 }
