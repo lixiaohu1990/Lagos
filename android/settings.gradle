@@ -1,0 +1,3 @@
+rootProject.name = 'Lagou'
+
+include ':app'
