@@ -3,32 +3,30 @@ import React, {Component} from 'react';
 import {
     View,
     Image,
-    StyleSheet,
     Text,
-    TouchableHighlight,
+    StyleSheet,
     TouchableOpacity,
 } from 'react-native';
 
 import NavigatorBar from '../NavigatorBar';
-
-export default class Resume extends Component{
+export default class HomeDetail extends Component{
     render(){
-        return (
+        const {job} = this.props;
+        return(
             <View style={styles.container}>
-                <NavigatorBar title={this.props.title} navigator={this.props.navigator}/>
+               <NavigatorBar title="职位详情" navigator={this.props.navigator}/>
 
                 <View style={styles.content}>
-                    <Text>即将完善...</Text>
+                    <Text>{job.title}</Text>
                 </View>
 
             </View>
-
-
-
-
         );
+
+
     }
 }
+
 
 const styles = StyleSheet.create({
     container:{
