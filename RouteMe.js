@@ -10,9 +10,6 @@ import {
 import Me from './Views/Me'
 export default class RouteMe extends Component{
 
-
-
-
     render(){
         const defaultName = 'Me';
         const defaultComponent = Me;
@@ -20,7 +17,7 @@ export default class RouteMe extends Component{
         return(
             <Navigator
                 initialRoute={{name:defaultName, component:defaultComponent}}
-                configureScene={(route) => {return Navigator.SceneConfigs.HorizontalSwipeJumpFromRight;}}
+                configureScene={(route) => {return Navigator.SceneConfigs.HorizontalSwipeJump;}}
                 renderScene={(route, navigator) => {
                     let Component = route.component;
                     return <Component {...route.params} navigator={navigator} />
@@ -30,7 +27,6 @@ export default class RouteMe extends Component{
     }
 
 }
-
 
 const styles = StyleSheet.create({
     container:{
